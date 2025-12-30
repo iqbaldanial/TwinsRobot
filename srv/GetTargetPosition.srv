@@ -1,0 +1,16 @@
+# GetTargetPosition.srv
+float64 xmin
+float64 xmax
+float64 ymin
+float64 ymax
+string class_name
+bool success
+---
+float64 x
+float64 y
+float64 z
+float64 img_x
+float64 img_y
+string class_name
+bool success
+string message

@@ -1,0 +1,15 @@
+<launch>  
+  <!-- Bring up robot base -->
+  <!-- <include file="$(find jupiterobot2_bringup)/launch/jupiterobot2_bringup.launch"/> -->
+
+  <!-- Bring up both cameras -->
+  <!-- <include file="$(find robotedge_jupiter_vision)/launch/multi_astra.launch" /> -->
+
+  <node name="general_speech_server" pkg="airina_fyp" type="general_speech_server.py" output="screen" />
+
+  <node name="main" pkg="airina_fyp" type="main.py" output="screen" />
+
+  <node name="start" pkg="airina_fyp" type="example_main.py" output="screen" />
+
+
+</launch>

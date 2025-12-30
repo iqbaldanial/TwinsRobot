@@ -1,0 +1,12 @@
+<launch>
+
+    <!-- 1. Bring up robot base -->
+    <include file="$(find jupiterobot2_bringup)/launch/jupiterobot2_bringup.launch"/>
+
+    <!-- 3. Bring up top camera -->
+    <include file="$(find robotedge_jupiter_vision)/launch/astra.launch"/>
+    <!--<include file="$(find jupiterobot2_bringup)/launch/multi_camera.launch"/>-->
+
+    <!-- 4. Bring up camera & arm motor -->
+    <include file="$(find jupiterobot2_bringup)/launch/arm_head_bringup.launch"/>
+</launch>

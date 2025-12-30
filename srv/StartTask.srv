@@ -1,0 +1,6 @@
+# Request: Input from your system
+string target_item_name
+---
+# Response: Output back from the arm control node
+bool success
+string verbal_response

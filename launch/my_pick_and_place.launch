@@ -1,0 +1,35 @@
+<launch>
+    <node pkg="tf" type="static_transform_publisher" name="base_to_camera_tf"
+          args="0.25 0 0.45 0 0.52 0 base_link camera_link 100" />
+
+    <node pkg="aruco_ros" type="single" name="aruco_single">
+        <remap from="/camera_info" to="/camera/color/camera_info" />
+        <remap from="/image" to="/camera/color/image_raw" />
+        
+        <param name="marker_size" value="0.08"/> 
+        <param name="marker_id" value="1"/> 
+        <param name="dictionary" value="DICT_4X4_1000"/> 
+        
+        <remap from="/pose" to="/aruco_single/pose" />
+    </node>
+
+    <node pkg="nodelet" type="nodelet" name="depth_nodelet_manager"
+          args="manager" output="screen"/>
+    
+    <node pkg="nodelet" type="nodelet" name="register_depth"
+          args="load depth_image_proc/register depth_nodelet_manager"
+          output="screen">
+        <remap from="rgb/camera_info"     to="/camera/color/camera_info"/>
+        <remap from="depth/camera_info"   to="/camera/depth/camera_info"/>
+        <remap from="depth/image_rect"    to="/camera/depth/image_raw"/>
+        
+        <remap from="depth_registered/image_rect" to="/camera/depth_registered/image_raw"/>
+    </node>
+    <node pkg="airina_fyp" type="detect.py" name="start_detection" output="screen"/>
+
+    <node pkg="airina_fyp" type="arm_test2.py" name="head_arm_hand" output="screen"/>
+
+    <!--node pkg="airina_fyp" type="example_main.py" name="example_main" output="screen"
+          launch-prefix="bash -c 'sleep 2; $0 $@' "/-->
+
+</launch>

@@ -1,0 +1,7 @@
+<launch>
+    <include file="$(find airina_fyp)/launch/my_robot_bringup.launch"/>
+
+    <include file="$(find airina_fyp)/launch/my_pick_and_place.launch"/>
+
+    <include file="$(find airina_fyp)/launch/main.launch"/>
+</launch>

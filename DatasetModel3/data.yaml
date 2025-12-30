@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 4
+names: ['crumpled_paper', 'drink_carton', 'dustbin', 'plastic_bottle']
+
+roboflow:
+  workspace: fyp-z3zvr
+  project: objdetection-mjren
+  version: 4
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/fyp-z3zvr/objdetection-mjren/dataset/4

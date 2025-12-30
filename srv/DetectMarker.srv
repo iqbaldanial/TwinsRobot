@@ -1,0 +1,13 @@
+# DetectMarker.srv
+int32 dict_id   # ARUCO dictionary id (>=0 to override), or -1 to use default rosparam
+int32 marker_id # specific marker id to find, or -1 to accept the first detected
+---
+bool success
+int32 id        # id of detected marker
+float32 rvec_x
+float32 rvec_y
+float32 rvec_z
+float32 tvec_x  # translation in meters (camera frame)
+float32 tvec_y
+float32 tvec_z
+string message
